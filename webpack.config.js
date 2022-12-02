@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // import { MTLLoader, OBJLoader } from "three-obj-mtl-loader";
-//var SRC = path.resolve(__dirname, 'src/index.js');
+// var SRC = path.resolve(__dirname, 'src/index.js');
 
 module.exports = {
   mode: 'development',
@@ -14,7 +14,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'A.T.',
+      title: 'T.A.V.E.',
     }),
   ],
   output: {
@@ -55,4 +55,13 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    fallback: { // not present by default
+      "crypto": false,
+      "stream": false,
+      "os": false,
+      "https": false,
+      "http": false
+    }
+  }
 };
