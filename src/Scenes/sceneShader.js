@@ -4,14 +4,14 @@ import Camera from '../Components/Camera.js'
 
 export default class sceneShader
 {
-    constructor( sizes )
+    constructor( sizes, frag )
     {
         //create scene
         this.scene = new THREE.Scene( );
         this.scene.background = new THREE.Color( 0.5, 0.5, 0.5 );
         //create objects
         this.O = new Objects( );
-        this.O.objectsShader( this.scene, sizes );
+        this.O.objectsShader( this.scene, sizes, frag );
         //create camera
         this.C = new Camera( );
         this.C.createCameraShader( sizes );

@@ -1,20 +1,19 @@
 import * as THREE from 'three'
 import vertexShader from '../shaders/vertexShader.glsl'
-import fragmentShader01 from '../shaders/fragmentShader01.glsl'
 
 export default class Objects
 {
-    constructor() 
+    constructor( ) 
     {
 
     }
     //SCENE SHADER
-    objectsShader( scene, sizes )
+    objectsShader( scene, sizes, frag )
     {
         var planeGeometry = new THREE.PlaneGeometry( sizes.width/2, sizes.height/2 );
         this.planeMaterial = new THREE.ShaderMaterial({
             vertexShader: vertexShader,
-            fragmentShader: fragmentShader01,
+            fragmentShader: frag,
             uniforms: {
                 uTime: {value: 0.0},
                 uResY: {value: sizes.height},

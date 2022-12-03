@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 // import { MTLLoader, OBJLoader } from "three-obj-mtl-loader";
 // var SRC = path.resolve(__dirname, 'src/index.js');
 
@@ -16,6 +17,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'T.A.V.E.',
     }),
+    new NodePolyfillPlugin(),
   ],
   output: {
     filename: '[name].bundle.js',
@@ -57,11 +59,17 @@ module.exports = {
   },
   resolve: {
     fallback: { // not present by default
-      "crypto": false,
-      "stream": false,
-      "os": false,
-      "https": false,
-      "http": false
+    "fs": false,
+    "tls": false,
+    "net": false,
+    "path": false,
+    "zlib": false,
+    "http": false,
+    "https": false,
+    "stream": false,
+    "crypto": false,
+    "os": false,
+    "crypto-browserify": require.resolve('crypto-browserify')
     }
   }
 };
